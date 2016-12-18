@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title style="float:left;">Feedback</ion-title>
+     <ion-icon name="settings" style="float:right;width:40px;padding:5px" (click)="gotoLogin()"></ion-icon>
+     <ion-icon name="home" style="float:right;width:40px;padding:5px" (click)="gotoPreviousScreen()"></ion-icon>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+  <prodocuer-profile [imgUrl]="url" ></prodocuer-profile>
+  
+  <br/>
+  <h1>Additional Comments:</h1>
+  <ion-textarea style="border: 1px solid #e0e0e0;"></ion-textarea>
+  <br/>
+  <button ion-button full (click)="saveFeedback()" >Next</button>
+  <br/>
+  <br/>
+  <button ion-button full clear (click)="gotoThankScreen()" >Skip</button>
+  <br/>
+  <br/>
+  <progress id="progressbar" style="width:100%" max="100" value="100"> </progress>
+</ion-content>
+
+
+
+

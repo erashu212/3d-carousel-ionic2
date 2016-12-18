@@ -1,0 +1,64 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Producer Info</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-item *ngIf="message">
+		<ion-label text-center danger>{{message}}</ion-label>
+	</ion-item>
+	<ion-item>
+		<ion-label color="primary" floating>Name</ion-label>
+		<ion-input [(ngModel)]="producer.name"></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-label color="primary" floating>Email</ion-label>
+		<ion-input [(ngModel)]="producer.email"></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-label>Role</ion-label>
+		<ion-select [(ngModel)]="producer.role">
+			<ion-option value="Admin" selected="true">Admin</ion-option>
+			<ion-option value="Temp">Temp</ion-option>
+		</ion-select>
+	</ion-item>
+
+	<ion-grid>
+		<ion-row>
+			<ion-col width-90>
+				<ion-label>Profile Photo</ion-label>
+				<ion-card>
+					<img class="logo" style="margin-left:20%" 
+          src="{{producer.imageUrl ? producer.imageUrl : 'http://www.elmastudio.de/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'}}"
+						alt="{{producer.name}}">
+					<ion-icon name="camera" (click)="presentActionSheet()" style="margin-left:45%;height:25px"></ion-icon>
+				</ion-card>
+				<button icon-left block (click)="add();">Add</button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	<ion-list>
+		<ion-item *ngFor="let item of producers">
+			<ion-card>
+				<img src="{{item.imageUrl}}" />
+				<ion-card-content>
+					<ion-card-title>
+						{{item?.name}}
+					</ion-card-title>
+					<p>
+						{{item?.email}}
+					</p>
+					<p>
+						{{item?.role}}
+					</p>
+				</ion-card-content>
+			</ion-card>
+			<button icon-left clear (click)="edit(item);">Edit</button>
+      <button icon-left clear (click)="delete(item);">Delete</button>
+		</ion-item>
+	</ion-list>
+
+</ion-content>

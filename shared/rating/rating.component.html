@@ -1,0 +1,9 @@
+<span (keydown)="onKeydown($event)" tabindex="0" role="slider" aria-valuemin="0" 
+[attr.aria-valuemax]="range.length" 
+[attr.aria-valuenow]="value">
+  <span *ngFor=" let rating of range; let idx = index;" class="active">
+    <ion-icon
+    class="fa" (click)="setRating(idx + 1)" 
+    [ngClass]="idx < value ? rating.onState : rating.offState"></ion-icon>
+  </span>
+</span>

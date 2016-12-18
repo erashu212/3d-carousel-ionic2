@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title style="float:left;">Producer</ion-title>
+     <ion-icon name="settings" style="float:right;width:40px;padding:5px" (click)="gotoLogin()"></ion-icon>
+    <ion-icon name="home" style="float:right;width:40px;padding:5px" (click)="gotoPreviousScreen()"></ion-icon>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+
+  <!-- Producer FlipFlop -->
+  <carousel [slides]="slides" (selectSlide)="selectProducer($event);" ></carousel>
+  <br/>
+  <div style="margin-top:300px;">
+  <progress id="progressbar" style="width:100%" max="100" value="10"> </progress>
+  </div>
+</ion-content>
